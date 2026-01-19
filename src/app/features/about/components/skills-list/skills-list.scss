@@ -1,0 +1,65 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// =============================================================================
+// Skills List Component Styles
+// =============================================================================
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+
+  &__category {
+    background-color: $color-background;
+    padding: $spacing-lg;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+  }
+
+  &__category-name {
+    font-size: $font-size-xl;
+    color: $color-secondary;
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-sm;
+    border-bottom: 2px solid $color-primary;
+  }
+
+  &__skills {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+}
+
+.skill {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__name {
+    font-weight: $font-weight-medium;
+    color: $color-text;
+  }
+
+  &__level {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+
+  &__bar {
+    height: 8px;
+    background-color: $color-background-alt;
+    border-radius: $border-radius-full;
+    overflow: hidden;
+  }
+
+  &__progress {
+    height: 100%;
+    background: linear-gradient(90deg, $color-primary, $color-primary-dark);
+    border-radius: $border-radius-full;
+    transition: width $transition-slow;
+  }
+}

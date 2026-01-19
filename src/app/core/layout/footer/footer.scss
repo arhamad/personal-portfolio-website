@@ -1,0 +1,52 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// =============================================================================
+// Footer Component Styles
+// =============================================================================
+
+.footer {
+  background-color: $color-secondary;
+  color: $color-background;
+  padding: $spacing-2xl $spacing-md;
+  margin-top: auto; // Push to bottom with flex layout
+
+  &__container {
+    @include container;
+    @include flex-column;
+    align-items: center;
+    gap: $spacing-lg;
+    text-align: center;
+  }
+
+  // Social Links
+  &__social {
+    display: flex;
+    gap: $spacing-lg;
+  }
+
+  &__social-link {
+    color: rgba($color-background, 0.8);
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  // Copyright
+  &__copyright {
+    margin: 0;
+    font-size: $font-size-sm;
+    color: rgba($color-background, 0.7);
+  }
+
+  // Tagline
+  &__tagline {
+    margin: 0;
+    font-size: $font-size-xs;
+    color: rgba($color-background, 0.5);
+  }
+}

@@ -1,0 +1,23 @@
+@use 'styles/variables' as *;
+
+// =============================================================================
+// Root Application Styles
+// =============================================================================
+
+.app {
+  // Use flexbox to create sticky footer layout
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__main {
+    flex: 1;
+    // Add padding to account for fixed navbar
+    padding-top: $navbar-height;
+
+    .container {
+      padding-top: $spacing-md;
+      padding-bottom: $spacing-md;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// =============================================================================
+// Contact Form Component Styles
+// =============================================================================
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+
+  // Success/Error Messages
+  &__success,
+  &__error {
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    margin-bottom: $spacing-lg;
+
+    p {
+      margin: 0;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  &__success {
+    background-color: rgba($color-success, 0.1);
+    color: $color-success;
+    border: 1px solid $color-success;
+  }
+
+  &__error {
+    background-color: rgba($color-error, 0.1);
+    color: $color-error;
+    border: 1px solid $color-error;
+  }
+
+  // Form Fields
+  &__field {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__label {
+    display: block;
+    font-weight: $font-weight-medium;
+    color: $color-secondary;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__input {
+    @include input-base;
+
+    &--error {
+      border-color: $color-error;
+
+      &:focus {
+        border-color: $color-error;
+        box-shadow: 0 0 0 3px rgba($color-error, 0.1);
+      }
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  &__error-text {
+    display: block;
+    color: $color-error;
+    font-size: $font-size-sm;
+    margin-top: $spacing-xs;
+  }
+
+  // Submit Button
+  &__submit {
+    margin-top: $spacing-xl;
+  }
+}

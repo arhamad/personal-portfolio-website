@@ -1,0 +1,31 @@
+<!-- =============================================================================
+     Footer Template
+     ============================================================================= -->
+<footer class="footer">
+  <div class="footer__container">
+    <!-- Social Links -->
+    <div class="footer__social">
+      @for (link of socialLinks; track link.name) {
+        <a
+          [href]="link.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer__social-link"
+          [attr.aria-label]="link.name"
+        >
+          {{ link.name }}
+        </a>
+      }
+    </div>
+
+    <!-- Copyright -->
+    <p class="footer__copyright">
+      &copy; {{ currentYear }} Ahmad Hamad. All rights reserved.
+    </p>
+
+    <!-- Additional Info -->
+    <p class="footer__tagline">
+      Learn by doing, not by memorizing
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,65 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// =============================================================================
+// Home Page Styles
+// =============================================================================
+
+.home {
+  &__section {
+    padding: $spacing-3xl 0;
+  }
+
+  &__projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-xl;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__loading {
+    text-align: center;
+    color: $color-text-muted;
+    grid-column: 1 / -1;
+  }
+
+  &__more {
+    text-align: center;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+// Project card content styles
+.project-title {
+  font-size: $font-size-xl;
+  margin-bottom: $spacing-sm;
+}
+
+.project-description {
+  color: $color-text-light;
+  margin-bottom: $spacing-md;
+  flex: 1;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-md;
+
+  &__tag {
+    font-size: $font-size-xs;
+    padding: $spacing-xs $spacing-sm;
+    background-color: rgba($color-primary, 0.1);
+    color: $color-primary;
+    border-radius: $border-radius-full;
+  }
+}
+
+.project-link {
+  text-decoration: none;
+  margin-top: auto;
+}

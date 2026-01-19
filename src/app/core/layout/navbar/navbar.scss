@@ -1,0 +1,157 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// =============================================================================
+// Navbar Component Styles
+// =============================================================================
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $navbar-height;
+  background-color: $color-background;
+  box-shadow: $shadow-sm;
+  z-index: $z-index-navbar;
+
+  &__container {
+    @include container;
+    @include flex-between;
+    height: 100%;
+  }
+
+  // Brand / Logo
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    text-decoration: none;
+    color: $color-secondary;
+  }
+
+  &__logo {
+    width: 40px;
+    height: 40px;
+    background-color: $color-primary;
+    color: $color-background;
+    border-radius: $border-radius-md;
+    @include flex-center;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-lg;
+  }
+
+  &__name {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-lg;
+
+    @include respond-below('md') {
+      display: none;
+    }
+  }
+
+  // Desktop Links
+  &__links {
+    display: flex;
+    gap: $spacing-lg;
+
+    @include respond-below('md') {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: $color-text;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-md;
+    transition: color $transition-fast, background-color $transition-fast;
+
+    &:hover {
+      color: $color-primary;
+      background-color: rgba($color-primary, 0.1);
+    }
+
+    &--active {
+      color: $color-primary;
+    }
+  }
+
+  // Mobile Toggle Button (Hamburger)
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    @include respond-below('md') {
+      display: flex;
+    }
+  }
+
+  &__toggle-bar {
+    width: 100%;
+    height: 3px;
+    background-color: $color-secondary;
+    border-radius: $border-radius-full;
+    transition: transform $transition-base, opacity $transition-base;
+  }
+
+  // Animated hamburger to X
+  &__toggle--open {
+    .navbar__toggle-bar:nth-child(1) {
+      transform: translateY(8.5px) rotate(45deg);
+    }
+
+    .navbar__toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar__toggle-bar:nth-child(3) {
+      transform: translateY(-8.5px) rotate(-45deg);
+    }
+  }
+
+  // Mobile Menu
+  &__mobile {
+    position: absolute;
+    top: $navbar-height;
+    left: 0;
+    right: 0;
+    background-color: $color-background;
+    box-shadow: $shadow-md;
+    padding: $spacing-md;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform $transition-base, opacity $transition-base, visibility $transition-base;
+
+    @include respond-to('md') {
+      display: none;
+    }
+
+    &--open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    .navbar__link {
+      display: block;
+      padding: $spacing-md;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// =============================================================================
+// Contact Page Styles
+// =============================================================================
+
+.contact {
+  padding: $spacing-2xl 0;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $spacing-2xl;
+
+    @include respond-below('md') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Contact Info Section
+  &__info {
+    @include respond-below('md') {
+      order: 2;
+    }
+  }
+
+  &__info-item {
+    margin-bottom: $spacing-xl;
+
+    h3 {
+      font-size: $font-size-lg;
+      color: $color-secondary;
+      margin-bottom: $spacing-xs;
+    }
+
+    p {
+      color: $color-text-light;
+      margin: 0;
+    }
+
+    a {
+      color: $color-primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-md;
+
+    a {
+      color: $color-primary;
+      text-decoration: none;
+      font-weight: $font-weight-medium;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Form Section
+  &__form {
+    background-color: $color-background;
+    padding: $spacing-xl;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+
+    @include respond-below('md') {
+      order: 1;
+    }
+  }
+}

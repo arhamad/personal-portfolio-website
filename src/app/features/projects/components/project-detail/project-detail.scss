@@ -1,0 +1,135 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// =============================================================================
+// Project Detail Component Styles
+// =============================================================================
+
+.project-detail {
+  padding: $spacing-2xl 0;
+  max-width: 800px;
+  margin: 0 auto;
+
+  // Header
+  &__header {
+    margin-bottom: $spacing-xl;
+  }
+
+  &__back {
+    display: inline-block;
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-md;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-primary-dark;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-4xl;
+    color: $color-secondary;
+    margin-bottom: $spacing-sm;
+
+    @include respond-below('md') {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__date {
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+    margin: 0;
+  }
+
+  // Image
+  &__image {
+    margin-bottom: $spacing-xl;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  // Content Sections
+  &__content {
+    background-color: $color-background;
+  }
+
+  &__section {
+    margin-bottom: $spacing-xl;
+
+    h2 {
+      font-size: $font-size-2xl;
+      color: $color-secondary;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    line-height: $line-height-relaxed;
+    color: $color-text-light;
+    white-space: pre-line;
+  }
+
+  // Technologies
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+  }
+
+  &__tag {
+    padding: $spacing-sm $spacing-md;
+    background-color: rgba($color-primary, 0.1);
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+    border-radius: $border-radius-full;
+  }
+
+  // Actions
+  &__actions {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  // Loading State
+  &__loading {
+    text-align: center;
+    padding: $spacing-3xl;
+    color: $color-text-muted;
+  }
+
+  // Not Found State
+  &__not-found {
+    text-align: center;
+    padding: $spacing-3xl;
+
+    h1 {
+      color: $color-secondary;
+      margin-bottom: $spacing-md;
+    }
+
+    p {
+      color: $color-text-light;
+      margin-bottom: $spacing-xl;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}

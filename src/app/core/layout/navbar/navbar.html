@@ -1,0 +1,62 @@
+<!-- =============================================================================
+     Navbar Template
+     ============================================================================= -->
+<nav class="navbar">
+  <div class="navbar__container">
+    <!-- Logo / Brand -->
+    <a routerLink="/" class="navbar__brand">
+      <span class="navbar__logo">AH</span>
+      <span class="navbar__name">Ahmad Hamad</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <ul class="navbar__links">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="navbar__link--active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            class="navbar__link"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      class="navbar__toggle"
+      [class.navbar__toggle--open]="appState.mobileMenuOpen()"
+      (click)="appState.toggleMobileMenu()"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div
+    class="navbar__mobile"
+    [class.navbar__mobile--open]="appState.mobileMenuOpen()"
+  >
+    <ul class="navbar__mobile-links">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="navbar__link--active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            class="navbar__link"
+            (click)="onNavLinkClick()"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>

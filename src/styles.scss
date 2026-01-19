@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+// =============================================================================
+// Main Stylesheet Entry Point
+// =============================================================================
+// Teaching Point: This file imports all global styles in the correct order.
+// Variables and mixins first (no output), then base styles.
+
+@use 'styles/variables';
+@use 'styles/mixins';
+@use 'styles/base';
