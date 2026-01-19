@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '@core/layout/navbar/navbar';
 import { FooterComponent } from '@core/layout/footer/footer';
-import {HighlightDirective} from '@shared';
 
 // =============================================================================
 // Root Application Component
@@ -13,7 +12,7 @@ import {HighlightDirective} from '@shared';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, HighlightDirective],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
